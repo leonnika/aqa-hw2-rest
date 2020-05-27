@@ -1,11 +1,16 @@
-image: Ubuntu1804 
+image: Ubuntu  # образ для сборки
+
+stack: jdk 11  # версия JDK
 
 branches:
   only:
     - master  # ветка git
 
-build:   # будем использовать свой скрипт сборки
-- artifacts\app-mbank.jar
+build: off  # будем использовать свой скрипт сборки
+
+install:
+  # запускаем SUT (& означает, что в фоновом режиме - не блокируем терминал для запуска тестов)
+  - java -jar ./artifacts/app-mbank.jar &
 
 build_script:
-  - ./gradlew build
+  - ./gradlew test --info  # запускаем тест, флаг --info позволяет выводить больше информации
