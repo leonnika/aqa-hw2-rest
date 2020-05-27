@@ -11,15 +11,11 @@ import static org.hamcrest.Matchers.*;
 class MobileBankApiTestV5 {
     @Test
     void shouldReturnDemoAccounts() {
-        // Given - When - Then
-        // Предусловия
-        given()
+              given()
                 .baseUri("http://localhost:9999/api/v1")
-                // Выполняемые действия
-                .when()
+                               .when()
                 .get("/demo/accounts")
-                // Проверки
-                .then()
+                                .then()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
                 .body("every{ it.balance >= 0 }", is(true))
