@@ -5,7 +5,7 @@ branches:
     - master  # ветка git
 
 build:   # будем использовать свой скрипт сборки
-- java -jar artifacts\app-mbank.jar
+- artifacts\app-mbank.jar
 
 build_script:
   - ./gradlew build
